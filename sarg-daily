@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#Get current date
+TODAY=$(date +%d/%m/%Y)
+
+#Get one week ago today
+YESTERDAY=$(date --date "1 day ago" +%d/%m/%Y)
+
+/usr/local/sarg/bin/sarg -l /var/log/squid/access.log -o /var/www/sarg/daily -z -d $YESTERDAY-$TODAY
+
+exit 0
